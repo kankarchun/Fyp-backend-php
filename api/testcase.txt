@@ -1,0 +1,461 @@
+url: "customer/profile.php",
+type: "get",
+data: {custID:'C00001',custName:'changed'},
+datatype: 'json',
+{"status":true,"msg":"success"}
+
+url: "broadcast/message.php",
+type: "get",
+data: {custID:'C00001'},
+datatype: 'json',
+{"result":200,"message":"success","data":{"CustomerMessage":[{"title":"hello","description":"bye","dateTime":"2016-12-17 19:17:19"}]}}
+
+url: "broadcast/message.php",
+type: "get",
+data: {companyID:'CM00001'},
+datatype: 'json',
+{"CompanyMessage":[{"title":"asd","description":"123","dateTime":"2016-12-15 04:13:21"},{"title":"bee","description":"234","dateTime":"2016-12-15 04:13:48"}]}
+
+url: "customer/favourite.php",
+type: "get",
+data: {action:'set','custID':'C00001','restID':'R00001'},
+datatype: 'json',
+{"result":200,"message":"Success","data":[]}
+
+url: "customer/favourite.php",
+type: "get",
+data: {action:'set','custID':'C00001','restID':'R00001','food':'{"food":{"foodID":"F00001","specialOption":[{"optID":"OPT00001"},{"optID":"OPT00002"}]}}'},
+datatype: 'json',
+{"result":200,"message":"Success","data":[]}
+
+url: "customer/favourite.php",
+type: "get",
+data: {action:'set','custID':'C00001','restID':'R00001','set':'{"set":{"setID":"S00001","setChoice":[{"foodNo":1,"specialOption":[{"optID":"OPT00001"},{"optID":"OPT00002"}]}]}}'},
+datatype: 'json',
+{"result":200,"message":"Success","data":[]}
+
+url: "customer/favourite.php",
+type: "get",
+data: {action:'get','custID':'C00001','restID':'R00001'},
+datatype: 'json',
+{"result":200,"message":"success","data":{"FoodFavourite":[{"foodID":"F00001","restID":"R00001","groupNo":"1","foodChiName":"ChiFood","foodEngName":"EngFood","foodPrice":"100.000","foodPhoto":"abc.jpg","foodDesc":"nice","foodTakeout":"0","favouriteOrderOption":[{"optID":"OPT00001","contentChi":"ChiOPT","contentEng":"EngOPT"},{"optID":"OPT00002","contentChi":"ChiOPT2","contentEng":"EngOPT2"}]}],"SetFavourite":[{"setID":"EngSet","restID":"R00001","groupNo":"1","totalPrice":"100.000","setPhoto":"set.jpg","setDesc":"set desc","setTakeout":"0","setFood":{"foodID":"F00001","restID":"R00001","groupNo":"1","foodChiName":"ChiFood","foodEngName":"EngFood","foodPrice":"100.000","foodPhoto":"abc.jpg","foodDesc":"nice","foodTakeout":"0","favouriteChoiceOption":[],"titleName":null}},{"setID":"EngSet","restID":"R00001","groupNo":"1","totalPrice":"100.000","setPhoto":"set.jpg","setDesc":"set desc","setTakeout":"0","setFood":{"foodID":"F00001","restID":"R00001","groupNo":"1","foodChiName":"ChiFood","foodEngName":"EngFood","foodPrice":"100.000","foodPhoto":"abc.jpg","foodDesc":"nice","foodTakeout":"0","favouriteChoiceOption":[{"optID":"OPT00001","contentChi":"ChiOPT","contentEng":"EngOPT"},{"optID":"OPT00002","contentChi":"ChiOPT2","contentEng":"EngOPT2"}],"titleName":null}}]}}
+
+url: "customer/favourite.php",
+type: "get",
+data: {action:'get','custID':'C00001'},
+datatype: 'json',
+{"result":200,"message":"success","data":{"RestaurantFavourite":[{"companyID":"CM00001","companyChiName":"hi","companyEngName":"by","companyEmail":"123@hello.com","restaurant":{"restID":"R00001","restChiName":"ChiRest","restEngName":"EngRest","restAddress":"123 road","restTel":"456789","restEmail":"test@test.com","restDesc":"hello","restPhoto":"image\/profile.png","rgChiName":"\u4e2d\u897f\u5340","rgEngName":"Central and Western"}}]}}
+
+url: "customer/favourite.php",
+type: "get",
+data: {action:'delete','custID':'C00001','restID':'R00001','food':'F00001'},
+datatype: 'json',
+{"result":200,"message":"Success","data":[]}
+
+url: "customer/favourite.php",
+type: "get",
+data: {action:'delete','custID':'C00001','restID':'R00001','set':'S00001'},
+datatype: 'json',
+{"result":200,"message":"Success","data":[]}
+
+url: "customer/favourite.php",
+type: "get",
+data: {action:'delete','custID':'C00001','restID':'R00001'},
+datatype: 'json',
+{"result":200,"message":"Success","data":[]}
+
+url: "customer/information.php",
+type: "get",
+data: {'restID':'R00001','menuID':1},
+datatype: 'json',
+{"result":200,"message":"success","data":{"MenuItem":[{"itemNo":"IT00001","restID":"R00001","groupNo":"1","rowNumber":"5","columnNumber":"0","food":{"foodID":"F00001","foodChiName":"ChiFood","foodEngName":"EngFood","foodPrice":"100.000","foodPhoto":"abc.jpg","foodDesc":"nice","foodTakeout":"0"},"set":null,"widget":{"widgetID":"W00001","showPhotos":"0","rowSpan":"1","colSpan":"1"}},{"itemNo":"IT00002","restID":"R00001","groupNo":"1","rowNumber":"5","columnNumber":"1","food":null,"set":{"setID":"S00001","setChiName":"ChiSet","setEngName":"EngSet","totalPrice":"100.000","setPhoto":"set.jpg","setDesc":"set desc","setTakeout":"0","setTitle":[{"title":"hello","count":"1","setFood":[{"extraPrice":"10.000","food":{"foodID":"F00001","foodChiName":"ChiFood","foodEngName":"EngFood","foodPhoto":"abc.jpg","foodDesc":"nice"}}]}]},"widget":{"widgetID":"W00002","showPhotos":"1","rowSpan":"1","colSpan":"2"}}]}}
+
+url: "customer/information.php",
+type: "get",
+data: {'restID':'R00001'},
+datatype: 'json',
+{"RestaurantMenu":[{"restID":"R00001","groupNo":"1","groupChiName":"ChiGroup","groupEngName":"EngGroup"},{"restID":"R00001","groupNo":"2","groupChiName":"ChiGroup2","groupEngName":"EngGroup2"}]}
+
+url: "customer/order.php",
+type: "get",
+data: {'invoice':'{"invoice":{"custID":"C00001","restID":"R00001","address":"123 road","tableID":null,"totalCost":100,"charge":[{"chargeID":"999"}],"food":[{"foodID":"F00001","quantity":3,"specialOption":[{"optID":"OPT00001"}]}],"set":[{"setID":"S00001","quantity":1,"setOrderChoice":[{"foodNo":"F00001","quantity":2,"specialOption":[{"optID":"OPT00001"}]}]}]}}'},
+datatype: 'json',
+{"result":200,"message":"Success","data":{"invoice":[{"invoiceID":"I00002","restID":"R00001","custID":"C00001","table":null,"takeout":{"takeoutID":"T00003","takeoutNo":null,"address":"123 road"},"totalCost":"100.000","orderDateTime":"2017-01-10 18:49:22","restaurant":{"restID":"R00001","restChiName":"ChiRest","restEngName":"EngRest","restAddress":"123 road","restTel":"456789","restEmail":"test@test.com","restPhoto":"image\/profile.png","restDesc":"hello"},"customer":{"custID":"C00001","custName":"he llo","custTel":"123"},"charge":[],"orderFood":[{"orderNo":"OF00002","foodChiName":"ChiFood","foodEngName":"EngFood","foodPrice":"100.000","quantity":"3","foodSubPrice":"300.000","specialOption":[{"optID":"OPT00001","contentChi":"ChiOPT","contentEng":"EngOPT"}]}],"setOrder":[{"setOrderNo":"2","setChiName":"ChiSet","setEngName":"EngSet","setPrice":"100.000","quantity":"1","setSubPrice":"100.000","setOrderChoice":[{"setOrderChoiceNo":"2","foodChiName":"ChiFood","foodEngName":"EngFood","extraPrice":"10.000","quantity":"2","extraSubPrice":"20.000","ChoiceOption":[{"optID":"OPT00001","contentChi":"ChiOPT","contentEng":"EngOPT"}]}]}]}]}}
+
+url: "customer/order.php",
+type: "get",
+data: {'invoice':'{"invoice":{"custID":"C00001","restID":"R00001","address":null,"tableID":null,"totalCost":39.2,"charge":[{"chargeID":"CH00000"}],"food":[],"set":[{"setID":"S00001","quantity":2,"setOrderChoice":[{"foodNo":"F00001","quantity":1,"specialOption":[]},{"foodNo":"F00001","quantity":1,"specialOption":[{"optID":"OPT00001"}]}]}]}}'},
+datatype: 'json',
+{"result":200,"message":"Success","data":{"invoice":[{"invoiceID":"I00017","restID":"R00001","custID":"C00001","table":null,"takeout":{"takeoutID":"T00011","takeoutNo":"2","address":null},"totalCost":"39.200","orderDateTime":"2017-01-19 19:46:42","restaurant":{"restID":"R00001","restChiName":"大家樂(將軍澳)","restEngName":"Coral(TKO)","restAddress":"117, 尚德廣場2 Tong Ming St, Tseung Kwan O","restAddressEng":"117, Sheung Tak Plaza2 Tong Ming St, Tseung Kwan O","restTel":"2178 4070","restEmail":"demo@gmail.com","restPhoto":"image\/restaurant\/profile.png","restDesc":"best restaurant"},"customer":{"custID":"C00001","custName":"陳小明","custTel":"123"},"charge":[{"iChargeNo":"IC00007","detailChi":"特價","detailEng":"special","charge":"*0.7"}],"orderFood":[],"setOrder":[{"setOrderNo":"17","setChiName":"早餐","setEngName":"breakfast","setPrice":"10.000","quantity":"2","setSubPrice":"20.000","setOrderChoice":[{"setOrderChoiceNo":"8","foodChiName":"點心","foodEngName":"dim sum","extraPrice":"0.000","quantity":"1","extraSubPrice":"0.000","ChoiceOption":[]},{"setOrderChoiceNo":"9","foodChiName":"點心","foodEngName":"dim sum","extraPrice":"0.000","quantity":"1","extraSubPrice":"0.000","ChoiceOption":[{"optID":"OPT00001","contentChi":"少油","contentEng":"less oil","extraPrice":"0.000"}]}]}]}]}}
+
+url: "customer/order.php",
+type: "get",
+data: {'custID':'C00001'},
+datatype: 'json',
+{"result":200,"message":"success","data":{"invoice":[{"invoiceID":"I00010","restID":"R00001","custID":"C00001","table":{"tableID":"TB00001","tableNo":"1"},"takeout":null,"totalCost":"100.000","orderDateTime":"2017-01-09 21:06:18","restaurant":{"restID":"R00001","restChiName":"ChiRest","restEngName":"EngRest","restAddress":"123 road","restTel":"456789","restEmail":"test@test.com","restPhoto":"image\/profile.png","restDesc":"hello"},"customer":{"custID":"C00001","custName":"changed","custTel":"123"},"charge":[],"orderFood":[{"orderNo":"OF00007","foodChiName":"ChiFood","foodEngName":"EngFood","foodPrice":"100.000","quantity":"3","foodSubPrice":"300.000","specialOption":[{"optID":"OPT00001","contentChi":"ChiOPT","contentEng":"EngOPT"}]}],"setOrder":[{"setOrderNo":"5","setChiName":"ChiSet","setEngName":"EngSet","setPrice":"100.000","quantity":"1","setSubPrice":"100.000","setOrderChoice":[{"setOrderChoiceNo":"3","foodChiName":"ChiFood","foodEngName":"EngFood","extraPrice":"10.000","quantity":"2","extraSubPrice":"20.000","ChoiceOption":[{"optID":"OPT00001","contentChi":"ChiOPT","contentEng":"EngOPT"}]}]}]},{"invoiceID":"I00009","restID":"R00001","custID":"C00001","table":null,"takeout":{"takeoutID":"T00010","takeoutNo":null,"address":"123 road"},"totalCost":"100.000","orderDateTime":"2017-01-09 21:04:13","restaurant":{"restID":"R00001","restChiName":"ChiRest","restEngName":"EngRest","restAddress":"123 road","restTel":"456789","restEmail":"test@test.com","restPhoto":"image\/profile.png","restDesc":"hello"},"customer":{"custID":"C00001","custName":"changed","custTel":"123"},"charge":[],"orderFood":[{"orderNo":"OF00006","foodChiName":"ChiFood","foodEngName":"EngFood","foodPrice":"100.000","quantity":"3","foodSubPrice":"300.000","specialOption":[{"optID":"OPT00001","contentChi":"ChiOPT","contentEng":"EngOPT"}]}],"setOrder":[{"setOrderNo":"4","setChiName":"ChiSet","setEngName":"EngSet","setPrice":"100.000","quantity":"1","setSubPrice":"100.000","setOrderChoice":[{"setOrderChoiceNo":"2","foodChiName":"ChiFood","foodEngName":"EngFood","extraPrice":"10.000","quantity":"2","extraSubPrice":"20.000","ChoiceOption":[{"optID":"OPT00001","contentChi":"ChiOPT","contentEng":"EngOPT"}]}]}]},{"invoiceID":"I00008","restID":"R00001","custID":"C00001","table":null,"takeout":{"takeoutID":"T00009","takeoutNo":null,"address":"123 road"},"totalCost":"100.000","orderDateTime":"2017-01-09 21:03:37","restaurant":{"restID":"R00001","restChiName":"ChiRest","restEngName":"EngRest","restAddress":"123 road","restTel":"456789","restEmail":"test@test.com","restPhoto":"image\/profile.png","restDesc":"hello"},"customer":{"custID":"C00001","custName":"changed","custTel":"123"},"charge":[],"orderFood":[{"orderNo":"OF00005","foodChiName":"ChiFood","foodEngName":"EngFood","foodPrice":"100.000","quantity":"3","foodSubPrice":"300.000","specialOption":[{"optID":"OPT00001","contentChi":"ChiOPT","contentEng":"EngOPT"}]}],"setOrder":[{"setOrderNo":"3","setChiName":"ChiSet","setEngName":"EngSet","setPrice":"100.000","quantity":"1","setSubPrice":"100.000","setOrderChoice":[{"setOrderChoiceNo":"1","foodChiName":"ChiFood","foodEngName":"EngFood","extraPrice":"10.000","quantity":"2","extraSubPrice":"20.000","ChoiceOption":[{"optID":"OPT00001","contentChi":"ChiOPT","contentEng":"EngOPT"}]}]}]},{"invoiceID":"I00007","restID":"R00001","custID":"C00001","table":null,"takeout":{"takeoutID":"T00008","takeoutNo":null,"address":"123 road"},"totalCost":"100.000","orderDateTime":"2017-01-09 21:03:19","restaurant":{"restID":"R00001","restChiName":"ChiRest","restEngName":"EngRest","restAddress":"123 road","restTel":"456789","restEmail":"test@test.com","restPhoto":"image\/profile.png","restDesc":"hello"},"customer":{"custID":"C00001","custName":"changed","custTel":"123"},"charge":[],"orderFood":[{"orderNo":"OF00004","foodChiName":"ChiFood","foodEngName":"EngFood","foodPrice":"100.000","quantity":"3","foodSubPrice":"300.000","specialOption":[{"optID":"OPT00001","contentChi":"ChiOPT","contentEng":"EngOPT"}]}],"setOrder":[{"setOrderNo":"2","setChiName":"ChiSet","setEngName":"EngSet","setPrice":"100.000","quantity":"1","setSubPrice":"100.000","setOrderChoice":[]}]},{"invoiceID":"I00006","restID":"R00001","custID":"C00001","table":null,"takeout":{"takeoutID":"T00007","takeoutNo":null,"address":"123 road"},"totalCost":"100.000","orderDateTime":"2017-01-09 20:36:48","restaurant":{"restID":"R00001","restChiName":"ChiRest","restEngName":"EngRest","restAddress":"123 road","restTel":"456789","restEmail":"test@test.com","restPhoto":"image\/profile.png","restDesc":"hello"},"customer":{"custID":"C00001","custName":"changed","custTel":"123"},"charge":[],"orderFood":[{"orderNo":"OF00003","foodChiName":"ChiFood","foodEngName":"EngFood","foodPrice":"100.000","quantity":"3","foodSubPrice":"300.000","specialOption":[{"optID":"OPT00001","contentChi":"ChiOPT","contentEng":"EngOPT"}]}],"setOrder":[{"setOrderNo":"1","setChiName":"ChiSet","setEngName":"EngSet","setPrice":"100.000","quantity":"1","setSubPrice":"100.000","setOrderChoice":[]}]},{"invoiceID":"I00005","restID":"R00001","custID":"C00001","table":null,"takeout":{"takeoutID":"T00006","takeoutNo":null,"address":"123 road"},"totalCost":"100.000","orderDateTime":"2017-01-09 20:34:37","restaurant":{"restID":"R00001","restChiName":"ChiRest","restEngName":"EngRest","restAddress":"123 road","restTel":"456789","restEmail":"test@test.com","restPhoto":"image\/profile.png","restDesc":"hello"},"customer":{"custID":"C00001","custName":"changed","custTel":"123"},"charge":[],"orderFood":[{"orderNo":"OF00002","foodChiName":"ChiFood","foodEngName":"EngFood","foodPrice":"100.000","quantity":"3","foodSubPrice":"300.000","specialOption":[{"optID":"OPT00001","contentChi":"ChiOPT","contentEng":"EngOPT"}]}],"setOrder":[]},{"invoiceID":"I00004","restID":"R00001","custID":"C00001","table":null,"takeout":{"takeoutID":"T00005","takeoutNo":null,"address":"123 road"},"totalCost":"100.000","orderDateTime":"2017-01-09 20:33:59","restaurant":{"restID":"R00001","restChiName":"ChiRest","restEngName":"EngRest","restAddress":"123 road","restTel":"456789","restEmail":"test@test.com","restPhoto":"image\/profile.png","restDesc":"hello"},"customer":{"custID":"C00001","custName":"changed","custTel":"123"},"charge":[],"orderFood":[{"orderNo":"OF00001","foodChiName":"ChiFood","foodEngName":"EngFood","foodPrice":"100.000","quantity":"3","foodSubPrice":"300.000","specialOption":[{"optID":"OPT00001","contentChi":"ChiOPT","contentEng":"EngOPT"}]}],"setOrder":[]},{"invoiceID":"I00003","restID":"R00001","custID":"C00001","table":null,"takeout":{"takeoutID":"T00004","takeoutNo":null,"address":"123 road"},"totalCost":"100.000","orderDateTime":"2017-01-09 20:33:29","restaurant":{"restID":"R00001","restChiName":"ChiRest","restEngName":"EngRest","restAddress":"123 road","restTel":"456789","restEmail":"test@test.com","restPhoto":"image\/profile.png","restDesc":"hello"},"customer":{"custID":"C00001","custName":"changed","custTel":"123"},"charge":[],"orderFood":[],"setOrder":[]},{"invoiceID":"I00002","restID":"R00001","custID":"C00001","table":null,"takeout":{"takeoutID":"T00003","takeoutNo":null,"address":"123 road"},"totalCost":"100.000","orderDateTime":"2017-01-09 20:32:49","restaurant":{"restID":"R00001","restChiName":"ChiRest","restEngName":"EngRest","restAddress":"123 road","restTel":"456789","restEmail":"test@test.com","restPhoto":"image\/profile.png","restDesc":"hello"},"customer":{"custID":"C00001","custName":"changed","custTel":"123"},"charge":[],"orderFood":[],"setOrder":[]},{"invoiceID":"I00001","restID":"R00001","custID":"C00001","table":null,"takeout":{"takeoutID":"T00002","takeoutNo":null,"address":"123 road"},"totalCost":"100.000","orderDateTime":"2017-01-09 20:24:45","restaurant":{"restID":"R00001","restChiName":"ChiRest","restEngName":"EngRest","restAddress":"123 road","restTel":"456789","restEmail":"test@test.com","restPhoto":"image\/profile.png","restDesc":"hello"},"customer":{"custID":"C00001","custName":"changed","custTel":"123"},"charge":[],"orderFood":[],"setOrder":[]},{"invoiceID":"I00000","restID":"R00001","custID":"C00001","table":null,"takeout":{"takeoutID":"T00001","takeoutNo":"1","address":null},"totalCost":"100.000","orderDateTime":"2016-12-15 00:00:00","restaurant":{"restID":"R00001","restChiName":"ChiRest","restEngName":"EngRest","restAddress":"123 road","restTel":"456789","restEmail":"test@test.com","restPhoto":"image\/profile.png","restDesc":"hello"},"customer":{"custID":"C00001","custName":"changed","custTel":"123"},"charge":[{"iChargeNo":"IC00000","detail":"dont","charge":"*0.9"}],"orderFood":[{"orderNo":"OF00000","foodChiName":"ChiName","foodEngName":"EngName","foodPrice":"100","quantity":"1","foodSubPrice":"90.000","specialOption":[{"optID":"OPT00001","contentChi":"ChiOPT","contentEng":"EngOPT"}]}],"setOrder":[{"setOrderNo":"0","setChiName":"setChi","setEngName":"setEng","setPrice":"10.000","quantity":"1","setSubPrice":"50.000","setOrderChoice":[{"setOrderChoiceNo":"0","foodChiName":"ChiName","foodEngName":"EngName","extraPrice":"20.000","quantity":"2","extraSubPrice":"40.000","ChoiceOption":[{"optID":"OPT00001","contentChi":"ChiOPT","contentEng":"EngOPT"}]}]}]}]}}
+
+url: "customer/search.php",
+type: "get",
+data: {'action':'all','rest':'1'},
+datatype: 'json',
+{"result":200,"message":"success","data":{"Restaurant":[{"companyID":"CM00001","companyChiName":"hi","companyEngName":"by","companyEmail":"123@hello.com","restaurant":{"restID":"R00001","restChiName":"ChiRest","restEngName":"EngRest","restAddress":"123 road","restTel":"456789","restEmail":"test@test.com","restDesc":"hello","restPhoto":"image\/profile.png","rgChiName":"\u4e2d\u897f\u5340","rgEngName":"Central and Western"}},{"companyID":"CM00001","companyChiName":"hi","companyEngName":"by","companyEmail":"123@hello.com","restaurant":{"restID":"R00002","restChiName":"RestChi","restEngName":"RestEng","restAddress":"123 road","restTel":"456789","restEmail":"123@123.asd","restDesc":"hello","restPhoto":"abc.jpg","rgChiName":"\u4e2d\u897f\u5340","rgEngName":"Central and Western"}}]}}
+
+url: "customer/search.php",
+type: "get",
+data: {'action':'all','region':'1'},
+datatype: 'json',
+{"result":200,"message":"success","data":{"Region":[{"rgID":"RG00001","rgChiName":"\u4e2d\u897f\u5340","rgEngName":"Central and Western"}]}}
+
+url: "customer/search.php",
+type: "get",
+data: {'action':'search','restID':'R00001','food':'ChiFood'},
+datatype: 'json',
+{"result":200,"message":"success","data":{"Food":[{"companyID":"CM00001","companyChiName":"hi","companyEngName":"by","companyEmail":"123@hello.com","restaurant":{"restID":"R00001","restChiName":"ChiRest","restEngName":"EngRest","restAddress":"123 road","restTel":"456789","restEmail":"test@test.com","restDesc":"hello","restPhoto":"image\/profile.png","rgChiName":"\u4e2d\u897f\u5340","rgEngName":"Central and Western","food":{"foodID":"F00001","foodChiName":"ChiFood","foodEngName":"EngFood","foodPrice":"100.000","foodPhoto":"abc.jpg","foodDesc":"nice","foodTakeout":"0","charge":null}}},{"companyID":"CM00001","companyChiName":"hi","companyEngName":"by","companyEmail":"123@hello.com","restaurant":{"restID":"R00001","restChiName":"ChiRest","restEngName":"EngRest","restAddress":"123 road","restTel":"456789","restEmail":"test@test.com","restDesc":"hello","restPhoto":"image\/profile.png","rgChiName":"\u4e2d\u897f\u5340","rgEngName":"Central and Western","food":{"foodID":"F00002","foodChiName":"ChiFood2","foodEngName":"EngFood2","foodPrice":"120.000","foodPhoto":"abc.jpg2","foodDesc":"nice2","foodTakeout":"0","charge":null}}}],"Set":null}}
+
+url: "customer/search.php",
+type: "get",
+data: {'action':'search','region':'中西區','restaurant':'Chi'},
+datatype: 'json',
+{"result":200,"message":"success","data":{"Restaurant":[{"companyID":"CM00001","companyChiName":"hi","companyEngName":"by","companyEmail":"123@hello.com","restaurant":{"restID":"R00001","restChiName":"ChiRest","restEngName":"EngRest","restAddress":"123 road","restTel":"456789","restEmail":"test@test.com","restDesc":"hello","restPhoto":"image\/profile.png","rgChiName":"\u4e2d\u897f\u5340","rgEngName":"Central and Western"}},{"companyID":"CM00001","companyChiName":"hi","companyEngName":"by","companyEmail":"123@hello.com","restaurant":{"restID":"R00002","restChiName":"RestChi","restEngName":"RestEng","restAddress":"123 road","restTel":"456789","restEmail":"123@123.asd","restDesc":"hello","restPhoto":"abc.jpg","rgChiName":"\u4e2d\u897f\u5340","rgEngName":"Central and Western"}}]}}
+
+url: "customer/search.php",
+type: "get",
+data: {'action':'search','restaurant':'Chi'},
+datatype: 'json',
+{"result":200,"message":"success","data":{"Restaurant":[{"companyID":"CM00001","companyChiName":"hi","companyEngName":"by","companyEmail":"123@hello.com","restaurant":{"restID":"R00001","restChiName":"ChiRest","restEngName":"EngRest","restAddress":"123 road","restTel":"456789","restEmail":"test@test.com","restDesc":"hello","restPhoto":"image\/profile.png","rgChiName":"\u4e2d\u897f\u5340","rgEngName":"Central and Western"}},{"companyID":"CM00001","companyChiName":"hi","companyEngName":"by","companyEmail":"123@hello.com","restaurant":{"restID":"R00002","restChiName":"RestChi","restEngName":"RestEng","restAddress":"123 road","restTel":"456789","restEmail":"123@123.asd","restDesc":"hello","restPhoto":"abc.jpg","rgChiName":"\u4e2d\u897f\u5340","rgEngName":"Central and Western"}}]}}
+
+url: "customer/search.php",
+type: "get",
+data: {'action':'search','region':'中西'},
+datatype: 'json',
+{"result":200,"message":"success","data":{"Restaurant":[{"companyID":"CM00001","companyChiName":"hi","companyEngName":"by","companyEmail":"123@hello.com","restaurant":{"restID":"R00001","restChiName":"ChiRest","restEngName":"EngRest","restAddress":"123 road","restTel":"456789","restEmail":"test@test.com","restDesc":"hello","restPhoto":"image\/profile.png","rgChiName":"\u4e2d\u897f\u5340","rgEngName":"Central and Western"}},{"companyID":"CM00001","companyChiName":"hi","companyEngName":"by","companyEmail":"123@hello.com","restaurant":{"restID":"R00002","restChiName":"RestChi","restEngName":"RestEng","restAddress":"123 road","restTel":"456789","restEmail":"123@123.asd","restDesc":"hello","restPhoto":"abc.jpg","rgChiName":"\u4e2d\u897f\u5340","rgEngName":"Central and Western"}}]}}
+
+url: "customer/search.php",
+type: "get",
+data: {'action':'search','restID':'R00001'},
+datatype: 'json',
+{"result":200,"message":"success","data":{"Restaurant":{"companyID":"CM00001","companyChiName":"hi","companyEngName":"by","companyEmail":"123@hello.com","restaurant":{"restID":"R00001","restChiName":"ChiRest","restEngName":"EngRest","restAddress":"123 road","restTel":"456789","restEmail":"test@test.com","restDesc":"hello","restPhoto":"image\/profile.png","rgChiName":"\u4e2d\u897f\u5340","rgEngName":"Central and Western"}}}}
+
+url: "login_app.php",
+type: "post",
+data: {'uid':'987','pwd':'202cb962ac59075b964b07152d234b70'},
+datatype: 'json',
+{"status":true,"msg":"9343bb51549b90e20f583fd160caba9b","user":"customer"}
+
+url: "login_app.php",
+type: "post",
+data: {'access_token':'9343bb51549b90e20f583fd160caba9b','user':'customer'},
+datatype: 'json',
+{"customer":{"name":"Me","tel":"987"}}
+
+url: "forgotPwd.php",
+type: "post",
+data: {'uid':'R00001','pwd':'202cb962ac59075b964b07152d234b70'},
+datatype: 'json',
+{"status":true,"msg":"Change password success"}
+
+url: "customer/register.php",
+type: "post",
+data: {'phoneNo':'55416453','imei':'123456'},
+datatype: 'json',
+{"status":true,"msg":"2425"}
+
+url: "customer/register.php",
+type: "post",
+data: {'phoneNo':'55416453','imei':'123456','smsCode':'2425'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "message.php",
+type: "get",
+data: {'message':'hello'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "restaurant/tableFloorPlan.php",
+type: "get",
+data: {'restID':'R00001'},
+datatype: 'json',
+{"TableFloorPlan":[{"floor":"1","sizeX":"10","sizeY":"20","lastModify":"2016-12-15 00:00:00","Table":[{"tableID":"TB00001","tableNo":"1","posX":"1","posY":"2","maxNo":"2"}]}]}
+
+url: "manager/reportCust.php",
+type: "get",
+data: {'managerID':'M00001','custID':'C00001','comment':'bad'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "manager/QRcode.php",
+type: "get",
+data: {'action':'set','tableID':'TB00001','qrcode':'qr.jpg'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "manager/QRcode.php",
+type: "get",
+data: {'action':'set','restID':'R00001','qrcode':'qr.jpg'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "manager/QRcode.php",
+type: "get",
+data: {'action':'get','restID':'R00001'},
+datatype: 'json',
+{"RestaurantQRcode":{"restChiName":"ChiRest","restEngName":"EngRest","qrCode":"qr.jpg"},"TableQRcode":[{"tableID":"TB00001","tableNo":"1","qrCode":"qr.jpg"}]}
+
+url: "manager/QRcode.php",
+type: "get",
+data: {'action':'delete','tableID':'TB00001'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "manager/QRcode.php",
+type: "get",
+data: {'action':'delete','restID':'R00001'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "manager/discount.php",
+type: "get",
+data: {'action':'set','restID':'R00001','charge':'10%','dayNo':'null','detail':'no dayNo'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "manager/discount.php",
+type: "get",
+data: {'action':'set','chargeID':'CH00001','charge':'30%','dayNo':'{"dayNo":["mon"]}','detail':'null'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "manager/discount.php",
+type: "get",
+data: {'action':'update','cFoodNo':'1','chargeID':'CH00001','foodID':'F00001'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "manager/discount.php",
+type: "get",
+data: {'action':'update','cFoodNo':'0','chargeID':'CH00001','setID':'S00001'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "manager/discount.php",
+type: "get",
+data: {'action':'get','restID':'R00001'},
+datatype: 'json',
+{"FoodCharge":[{"chargeID":"CH00000","charge":"10%","dayNo":"{\"dayNo\":[\"wed\"]}","detail":"no detail"}],"SetCharge":[{"chargeID":"CH00001","charge":"20%","dayNo":"{\"dayNo\":[\"mon\"]}","detail":"dont detail"}]}
+
+url: "manager/discount.php",
+type: "get",
+data: {'action':'delete','cFoodNo':'1'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "manager/discount.php",
+type: "get",
+data: {'action':'delete','chargeID':'CH00000'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "manager/tableFloorPlan.php",
+type: "get",
+data: {'action':'set','tableFloor':'{"tableFloor":{"restID":"R00001","floor":"2","sizeX":10,"sizeY":20,"managerID":"M00001","lastModify":"2016-12-16 00:00:00"}}'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "manager/tableFloorPlan.php",
+type: "get",
+data: {'action':'set','restTable':'{"restTable":{"tableNo":1,"restID":"R00001","floor":"1","posX":20,"posY":40,"maxNo":"4"}}'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "manager/tableFloorPlan.php",
+type: "get",
+data: {'action':'update','tableFloor':'{"tableFloor":{"restID":"R00001","floor":"2","sizeX":20,"sizeY":20,"managerID":"M00001","lastModify":"2016-12-16 00:00:00"}}'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "manager/tableFloorPlan.php",
+type: "get",
+data: {'action':'update','restTable':'{"restTable":{"tableID":"TB00000","tableNo":1,"restID":"R00001","floor":"1","posX":30,"posY":40,"maxNo":"4"}}'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "manager/tableFloorPlan.php",
+type: "get",
+data: {'action':'delete','tableID':'TB00001'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "manager/tableFloorPlan.php",
+type: "get",
+data: {'action':'delete','restID':'R00001','floor':'1'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "manager/restMenu.php",
+type: "get",
+data: {'action':'set','menu':'{"menu":{"restID":"R00001","groupChiName":"GChi","groupEngName":"GEng","startTime":"2016-12-16 00:00:00","openHour":12,"showDay":"mon","managerID":"M00001","lastModify":"2016-12-16 00:10:00"}}'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "manager/restMenu.php",
+type: "get",
+data: {'action':'set','menuItem':'{"menuItem":{"restID":"R00001","groupNo":"2","foodID":"F00001","widgetID":"W00001","rowNumber":"5","columnNumber":"6"}}'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "manager/restMenu.php",
+type: "get",
+data: {'action':'update','menu':'{"menu":{"restID":"R00001","groupNo":"2","groupChiName":"GChi","groupEngName":"GEng","startTime":"2016-12-16 00:20:00","openHour":12,"showDay":"mon","managerID":"M00001","lastModify":"2016-12-16 00:10:00"}}'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "manager/restMenu.php",
+type: "get",
+data: {'action':'update','menuItem':'{"menuItem":{"itemNo":"IT00001","restID":"R00001","groupNo":"2","setID":"S00001","widgetID":"W00001","rowNumber":"5","columnNumber":"6"}}'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "manager/restMenu.php",
+type: "get",
+data: {'action':'delete','itemNo':'IT00001','restID':'R00001','groupNo':'2'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "manager/restReport.php",
+type: "get",
+data: {'restID':'R00001','minOrderDate':'2016-12-15 00:00:00','maxOrderDate':'2016-12-16 00:00:00'},
+datatype: 'json',
+{"RestaurantReport":{"companyID":"CM00001","companyChiName":"hi","companyEngName":"by","companyEmail":"123@123.com","restaurant":{"restID":"R00001","restChiName":"ChiRest","restEngName":"EngRest","restAddress":"123 road","restTel":"456789","restEmail":"123@123.asd","restDesc":"hello","restPhoto":"abc.jpg","rgChiName":"ChiLocation","rgEngName":"EngLocation","total":100}}}
+
+url: "manager/restAccount.php",
+type: "get",
+data: {'action':'set','restAccount':'{"restAccount":{"companyID":"CM00001","restPW":"123","restChiName":"ChiRest","restEngName":"EngRest","restAddress":"123 road","rgID":"RG00001","printer":"0.0.0.0","restTel":"456789","restEmail":"123@123.asd","restDesc":"hello","restPhoto":"abc.jpg","registeredDate":"2016-12-16 00:30:00","locked":"0"}}'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "manager/restAccount.php",
+type: "get",
+data: {'action':'update','restAccount':'{"restAccount":{"restID":"R00002","companyID":"CM00001","restPW":"456","restChiName":"RestChi","restEngName":"RestEng","restAddress":"123 road","rgID":"RG00001","printer":"0.0.0.0","restTel":"456789","restEmail":"123@123.asd","restDesc":"hello","restPhoto":"abc.jpg","registeredDate":"2016-12-16 00:30:00","locked":"0"}}'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "manager/restAccount.php",
+type: "get",
+data: {'action':'get','restID':'R00002'},
+datatype: 'json',
+{"RestaurantAccount":{"companyID":"CM00001","companyChiName":"hi","companyEngName":"by","companyEmail":"123@123.com","restaurant":{"restID":"R00002","restChiName":"RestChi","restEngName":"RestEng","restAddress":"123 road","restTel":"456789","restEmail":"123@123.asd","restDesc":"hello","restPhoto":"abc.jpg","rgChiName":"ChiLocation","rgEngName":"EngLocation","locked":"0"}}}
+
+url: "restCompany/managerAccount.php",
+type: "get",
+data: {'action':'get','companyID':'CM00001'},
+datatype: 'json',
+{"Manager":[{"managerID":"M00001","managerPW":"123","companyID":"CM00001","restID":"R00001","managerEmail":"m@m.com","locked":"0"}]}
+
+url: "restCompany/managerAccount.php",
+type: "get",
+data: {'action':'set','managerAccount':'{"managerAccount":{"managerPW":"456","companyID":"CM00001","restID":"R00001","managerEmail":"m@m.com","locked":"0"}}'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "restCompany/managerAccount.php",
+type: "get",
+data: {'action':'update','managerAccount':'{"managerAccount":{"managerID":"M00002","managerPW":"999","restID":"R00001","managerEmail":"m@m2.com","locked":"0"}}'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "manager/profile.php",
+type: "get",
+data: {'managerAccount':'{"managerAccount":{"managerID":"M00002","managerPW":"9199","managerEmail":"m@92.com"}}'},
+datatype: 'json',
+{"status":true,"msg":"success"}
+
+url: "manager/profile.php",
+type: "get",
+data: {'managerID':'M00002'},
+datatype: 'json',
+{"Manager":{"managerID":"M00002","managerPW":"919","companyID":"CM00001","restID":"R00001","managerEmail":"m@92.com","locked":"0"}}
+
+url: "restCompany/profile.php",
+type: "get",
+data: {'companyID':'CM00001'},
+datatype: 'json',
+{"Company":{"companyID":"CM00001","companyPW":"123","companyChiName":"hi","companyEngName":"by","companyEmail":"123@123.com","locked":"0"}}
+
+url: "restCompany/profile.php",
+type: "get",
+data: {'companyAccount':'{"companyAccount":{"companyID":"CM00001","companyPW":"123","companyChiName":"hi","companyEngName":"by","companyEmail":"123@hello.com"}}'},
+datatype: 'json',
+{"status":true,"msg":"success"}
+
+url: "restaurant/profile.php",
+type: "get",
+data: {'restID':'R00001'},
+datatype: 'json',
+{"RestaurantAccount":{"companyID":"CM00001","companyChiName":"hi","companyEngName":"by","companyEmail":"123@hello.com","restaurant":{"restID":"R00001","restChiName":"ChiRest","restEngName":"EngRest","restAddress":"123 road","printer":"123.123.123.123","restTel":"456789","restEmail":"123@123.asd","restDesc":"hello","restPhoto":"abc.jpg","rgChiName":"ChiLocation","rgEngName":"EngLocation","locked":"0"}}}
+
+url: "admin/systemReport.php",
+type: "get",
+data: {'minDate':'2016-12-14 00:00:00','maxDate':'2016-12-17 00:00:00'},
+datatype: 'json',
+{"SystemReport":[{"companyID":"CM00001","companyChiName":"hi","companyEngName":"by","companyEmail":"123@hello.com","restaurant":{"restID":"R00001","restChiName":"ChiRest","restEngName":"EngRest","restAddress":"123 road","printer":"123.123.123.123","restTel":"456789","restEmail":"123@123.asd","restDesc":"hello","restPhoto":"abc.jpg","rgChiName":"ChiLocation","rgEngName":"EngLocation","locked":"0"}},{"companyID":"CM00001","companyChiName":"hi","companyEngName":"by","companyEmail":"123@hello.com","restaurant":{"restID":"R00002","restChiName":"RestChi","restEngName":"RestEng","restAddress":"123 road","printer":"0.0.0.0","restTel":"456789","restEmail":"123@123.asd","restDesc":"hello","restPhoto":"abc.jpg","rgChiName":"ChiLocation","rgEngName":"EngLocation","locked":"0"}}],"total":2}
+
+url: "admin/reportCust.php",
+type: "get",
+data: {},
+datatype: 'json',
+{"CustReport":[{"custID":"C00001","custName":"Me","custTel":"987","locked":"0","custComment":"bad"}]}
+
+url: "admin/notification.php",
+type: "get",
+data: {'custID':'C00001','adminID':'A00000','title':'hello','description':'bye'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "admin/notification.php",
+type: "get",
+data: {'companyID':'CM00001','adminID':'A00000','title':'hello','description':'bye'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "admin/userAccount.php",
+type: "get",
+data: {'action':'get','user':'customer'},
+datatype: 'json',
+{"CustomerAccount":[{"custID":"C00001","custDevice":"202cb962ac59075b964b07152d234b70","custName":"Me","custTel":"987","locked":"0"}]}
+
+url: "admin/userAccount.php",
+type: "get",
+data: {'action':'set','CustomerAccount':'{"CustomerAccount":{"custDevice":"202cb962ac59075b964b07152d234b71","custName":"Mee","custTel":"977","locked":"0"}}'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "admin/userAccount.php",
+type: "get",
+data: {'action':'update','CustomerAccount':'{"CustomerAccount":{"custID":"C00002","custDevice":"202cb962ac59075b964b07152d234b71","custName":"Mee","custTel":"977","locked":"1"}}'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "admin/userAccount.php",
+type: "get",
+data: {'action':'get','user':'restaurantCompany'},
+datatype: 'json',
+{"RestaurantCompanyAccount":[{"companyID":"CM00001","companyChiName":"hi","companyEngName":"by","companyEmail":"123@hello.com","locked":"0"}]}
+
+url: "admin/userAccount.php",
+type: "get",
+data: {'action':'set','RestaurantCompanyAccount':'{"RestaurantCompanyAccount":{"companyPW":"999","companyChiName":"bye","companyEngName":"hi","companyEmail":"987@hello.com","locked":"0"}}'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "admin/userAccount.php",
+type: "get",
+data: {'action':'update','RestaurantCompanyAccount':'{"RestaurantCompanyAccount":{"companyID":"CM00003","companyPW":"9919","companyChiName":"byee","companyEngName":"hi","companyEmail":"987@hello.com","locked":"0"}}'},
+datatype: 'json',
+{"status":true,"msg":"Success"}
+
+url: "manager/restItem.php",
+type: "get",
+data: {'access_token':'e85abd9c9b632fa80022dde5a41cd061','action':'set','setItem':'{"setItem":{"restID":"R00001","groupNo":1,"setChiName":"testChi","setEngName":"testEng","totalPrice":99,"setPhoto":"abc","setDesc":"helloTest","setTakeout":0,"managerID":"M00001"}}','rule':'{"前菜":"1","主菜":"2","飲品":"2"}'},
+datatype: 'json',
+{"result":200,"message":"Success","data":[]}
